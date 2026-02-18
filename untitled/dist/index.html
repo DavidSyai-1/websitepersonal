@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M. David Syaifudin | Mechanical Engineer</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fontsource: Inter & Playfair Display -->
+  <link href="https://fontsource.org/inter/300.css" rel="stylesheet">
+  <link href="https://fontsource.org/inter/400.css" rel="stylesheet">
+  <link href="https://fontsource.org/inter/500.css" rel="stylesheet">
+  <link href="https://fontsource.org/inter/600.css" rel="stylesheet">
+  <link href="https://fontsource.org/inter/700.css" rel="stylesheet">
+  <link href="https://fontsource.org/playfair-display/400.css" rel="stylesheet">
+  <link href="https://fontsource.org/playfair-display/600.css" rel="stylesheet">
+  <link href="https://fontsource.org/playfair-display/700.css" rel="stylesheet">
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1a365d',
+            secondary: '#2d3748',
+            accent: '#c9a227',
+            light: '#f7fafc',
+            dark: '#1a202c'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fafafa;
+    }
+
+    .serif-font {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #c9a227;
+      border-radius: 3px;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 1s ease-out forwards;
+    }
+
+    .delay-100 {
+      animation-delay: 0.1s;
+    }
+
+    .delay-200 {
+      animation-delay: 0.2s;
+    }
+
+    .delay-300 {
+      animation-delay: 0.3s;
+    }
+
+    .delay-400 {
+      animation-delay: 0.4s;
+    }
+
+    /* Navigation */
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #c9a227;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Card Hover Effects */
+    .experience-card {
+      transition: all 0.4s ease;
+    }
+
+    .experience-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Skill Bar Animation */
+    .skill-bar {
+      transition: width 1.5s ease-out;
+    }
+
+    /* Button Styles */
+    .btn-primary {
+      background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #2d3748 0%, #1a365d 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(26, 54, 93, 0.3);
+    }
+
+    .btn-outline {
+      border: 2px solid #1a365d;
+      color: #1a365d;
+      transition: all 0.3s ease;
+    }
+
+    .btn-outline:hover {
+      background: #1a365d;
+      color: white;
+    }
+
+    /* Section Divider */
+    .section-divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #c9a227 0%, #1a365d 100%);
+      margin: 0 auto;
+    }
+
+    /* Image Placeholder Style */
+    .profile-image {
+      background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+    }
+  </style>
+</head>
+
+<body class="text-gray-800 antialiased">
+
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-sm transition-all duration-300" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <div class="flex-shrink-0">
+          <a href="#home" class="serif-font text-2xl font-bold text-primary">
+            M. David Syaifudin<span class="text-accent">.</span>
+          </a>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-8 items-center">
+          <a href="#home" class="nav-link text-gray-600 hover:text-primary font-medium transition-colors">Home</a>
+          <a href="#about" class="nav-link text-gray-600 hover:text-primary font-medium transition-colors">About</a>
+          <a href="#skills" class="nav-link text-gray-600 hover:text-primary font-medium transition-colors">Skills</a>
+          <a href="#experience" class="nav-link text-gray-600 hover:text-primary font-medium transition-colors">Experience</a>
+          <a href="#portfolio" class="nav-link text-gray-600 hover:text-primary font-medium transition-colors">Portfolio</a>
+          <a href="#contact" class="px-6 py-2 btn-primary text-white rounded-md font-medium">Contact</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button onclick="toggleMobileMenu()" class="md:hidden text-gray-600 hover:text-primary">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+      <div class="px-4 py-4 space-y-3">
+        <a href="#home" onclick="toggleMobileMenu()" class="block text-gray-600 hover:text-primary font-medium">Home</a>
+        <a href="#about" onclick="toggleMobileMenu()" class="block text-gray-600 hover:text-primary font-medium">About</a>
+        <a href="#skills" onclick="toggleMobileMenu()" class="block text-gray-600 hover:text-primary font-medium">Skills</a>
+        <a href="#experience" onclick="toggleMobileMenu()" class="block text-gray-600 hover:text-primary font-medium">Experience</a>
+        <a href="#portfolio" onclick="toggleMobileMenu()" class="block text-gray-600 hover:text-primary font-medium">Portfolio</a>
+        <a href="#contact" onclick="toggleMobileMenu()" class="block text-primary font-medium">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="min-h-screen flex items-center justify-center pt-20 bg-gradient-to-br from-gray-50 via-white to-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="order-2 md:order-1 animate-fade-in-up">
+          <p class="text-accent font-medium mb-4 tracking-wider uppercase text-sm">Professional Portfolio</p>
+          <h1 class="serif-font text-5xl md:text-6xl font-bold text-primary mb-6 leading-tight">
+            M. David<br />
+            <span class="text-gray-400">Syaifudin</span>
+          </h1>
+          <p class="text-xl text-gray-600 mb-2 font-medium">Mechanical Engineer | HSE-Oriented | Industrial Professional</p>
+          <p class="text-gray-500 mb-8 max-w-lg leading-relaxed">
+            Fresh graduate Teknik Mesin dengan dedikasi tinggi terhadap keselamatan kerja,
+            maintenance industri, dan kepemimpinan. Siap berkontribusi untuk pertumbuhan perusahaan.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#contact" class="px-8 py-3 btn-primary text-white rounded-md font-medium inline-flex items-center gap-2">
+              Get In Touch <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+            <a href="#portfolio" class="px-8 py-3 btn-outline rounded-md font-medium">
+              View Portfolio
+            </a>
+          </div>
+
+          <!-- Quick Stats -->
+          <div class="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-gray-200">
+            <div>
+              <p class="text-3xl font-bold text-primary">3.48</p>
+              <p class="text-sm text-gray-500">IPK / 4.00</p>
+            </div>
+            <div>
+              <p class="text-3xl font-bold text-primary">4+</p>
+              <p class="text-sm text-gray-500">Sertifikasi</p>
+            </div>
+            <div>
+              <p class="text-3xl font-bold text-primary">3+</p>
+              <p class="text-sm text-gray-500">Pengalaman</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="order-1 md:order-2 flex justify-center animate-fade-in-up delay-200">
+          <div class="relative">
+
+            <!-- efek glow -->
+            <div class="absolute inset-0 bg-accent/20 rounded-xl blur-3xl"></div>
+
+            <!-- Foto tanpa frame & tanpa background -->
+            <div class="flex items-center justify-center">
+              <img src="https://i.imgur.com/X4Cp9tC.png" alt="M. David Syaifudin" class="w-66 h-66 md:w-66 md:h-65 object-contain rounded-lg">
+            </div>
+
+            <!-- Decorative Elements -->
+            <div class="absolute -top-4 -right-4 w-20 h-20 bg-accent rounded-full opacity-20"></div>
+            <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-primary rounded-full opacity-20"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-accent font-medium mb-2 tracking-wider uppercase text-sm">About Me</p>
+        <h2 class="serif-font text-4xl font-bold text-primary mb-4">Professional Profile</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+          <p class="text-gray-600 leading-relaxed text-lg">
+            Saya adalah <span class="text-primary font-semibold">fresh graduate Teknik Mesin</span> dari Universitas Wahid Hasyim Semarang
+            dengan IPK 3.48/4.00. Memiliki pengalaman praktis di bidang maintenance industri, operasional mekanik,
+            dan penerapan standar Keselamatan dan Kesehatan Kerja (K3).
+          </p>
+          <p class="text-gray-600 leading-relaxed">
+            Dengan sertifikasi K3 BNSP dan pengalaman magang di PDAM Tirta Moedal Kota Semarang,
+            saya terbiasa melakukan inspeksi, perawatan, dan troubleshooting peralatan mekanik
+            dengan mengutamakan standar keselamatan kerja tertinggi.
+          </p>
+          <p class="text-gray-600 leading-relaxed">
+            Saya memiliki etos kerja tinggi, disiplin, komunikatif, dan siap berkembang
+            di dunia industri untuk mendukung kinerja dan target perusahaan secara optimal.
+          </p>
+
+          <div class="grid grid-cols-2 gap-4 pt-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                <i data-lucide="check-circle" class="w-5 h-5 text-primary"></i>
+              </div>
+              <span class="text-gray-700">K3 Certified</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                <i data-lucide="check-circle" class="w-5 h-5 text-primary"></i>
+              </div>
+              <span class="text-gray-700">Industrial Experience</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                <i data-lucide="check-circle" class="w-5 h-5 text-primary"></i>
+              </div>
+              <span class="text-gray-700">Leadership Skills</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                <i data-lucide="check-circle" class="w-5 h-5 text-primary"></i>
+              </div>
+              <span class="text-gray-700">Technical Reporting</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 rounded-2xl p-8 experience-card">
+          <h3 class="serif-font text-2xl font-bold text-primary mb-6">Education</h3>
+          <div class="space-y-6">
+            <div class="border-l-4 border-accent pl-6">
+              <p class="text-sm text-accent font-medium mb-1">2021 – 2025</p>
+              <h4 class="text-lg font-bold text-primary">Universitas Wahid Hasyim</h4>
+              <p class="text-gray-600">Teknik Mesin, Fakultas Teknik</p>
+              <p class="text-gray-500 text-sm mt-2">IPK: <span class="font-semibold text-primary">3.48 / 4.00</span></p>
+            </div>
+          </div>
+
+          <h3 class="serif-font text-2xl font-bold text-primary mb-6 mt-8">Certifications</h3>
+          <div class="space-y-3">
+            <div class="flex items-start gap-3">
+              <i data-lucide="award" class="w-5 h-5 text-accent mt-1"></i>
+              <div>
+                <p class="font-medium text-gray-800">Keselamatan dan Kesehatan Kerja (K3) BNSP</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <i data-lucide="award" class="w-5 h-5 text-accent mt-1"></i>
+              <div>
+                <p class="font-medium text-gray-800">Pelatihan SolidWorks – HMJ Teknik Mesin UNWAHAS</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <i data-lucide="award" class="w-5 h-5 text-accent mt-1"></i>
+              <div>
+                <p class="font-medium text-gray-800">Program Magang – PDAM Tirta Moedal Kota Semarang</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <i data-lucide="award" class="w-5 h-5 text-accent mt-1"></i>
+              <div>
+                <p class="font-medium text-gray-800">Santri Menulis oleh Suara Merdeka</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-accent font-medium mb-2 tracking-wider uppercase text-sm">Expertise</p>
+        <h2 class="serif-font text-4xl font-bold text-primary mb-4">Skills & Competencies</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- Hard Skills -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm">
+          <h3 class="serif-font text-2xl font-bold text-primary mb-6 flex items-center gap-3">
+            <i data-lucide="cpu" class="w-6 h-6 text-accent"></i>
+            Hard Skills
+          </h3>
+          <div class="space-y-5">
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="text-gray-700 font-medium">Mechanical Maintenance</span>
+                <span class="text-accent font-semibold">90%</span>
+              </div>
+              <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-primary to-accent skill-bar" style="width: 90%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="text-gray-700 font-medium">K3 / Safety Standards</span>
+                <span class="text-accent font-semibold">95%</span>
+              </div>
+              <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-primary to-accent skill-bar" style="width: 95%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="text-gray-700 font-medium">Microsoft Excel (Technical)</span>
+                <span class="text-accent font-semibold">85%</span>
+              </div>
+              <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-primary to-accent skill-bar" style="width: 85%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="text-gray-700 font-medium">SolidWorks</span>
+                <span class="text-accent font-semibold">80%</span>
+              </div>
+              <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-primary to-accent skill-bar" style="width: 80%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="text-gray-700 font-medium">Technical Documentation</span>
+                <span class="text-accent font-semibold">88%</span>
+              </div>
+              <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-primary to-accent skill-bar" style="width: 88%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soft Skills -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm">
+          <h3 class="serif-font text-2xl font-bold text-primary mb-6 flex items-center gap-3">
+            <i data-lucide="users" class="w-6 h-6 text-accent"></i>
+            Soft Skills
+          </h3>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="p-4 bg-gray-50 rounded-lg hover:bg-primary/5 transition-colors">
+              <i data-lucide="shield" class="w-8 h-8 text-accent mb-3"></i>
+              <h4 class="font-semibold text-gray-800">Leadership</h4>
+              <p class="text-sm text-gray-500 mt-1">Team Management</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg hover:bg-primary/5 transition-colors">
+              <i data-lucide="message-circle" class="w-8 h-8 text-accent mb-3"></i>
+              <h4 class="font-semibold text-gray-800">Communication</h4>
+              <p class="text-sm text-gray-500 mt-1">Public Speaking</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg hover:bg-primary/5 transition-colors">
+              <i data-lucide="users" class="w-8 h-8 text-accent mb-3"></i>
+              <h4 class="font-semibold text-gray-800">Teamwork</h4>
+              <p class="text-sm text-gray-500 mt-1">Collaboration</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg hover:bg-primary/5 transition-colors">
+              <i data-lucide="clock" class="w-8 h-8 text-accent mb-3"></i>
+              <h4 class="font-semibold text-gray-800">Responsibility</h4>
+              <p class="text-sm text-gray-500 mt-1">Time Management</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg hover:bg-primary/5 transition-colors">
+              <i data-lucide="calendar" class="w-8 h-8 text-accent mb-3"></i>
+              <h4 class="font-semibold text-gray-800">Event Management</h4>
+              <p class="text-sm text-gray-500 mt-1">Coordination</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg hover:bg-primary/5 transition-colors">
+              <i data-lucide="handshake" class="w-8 h-8 text-accent mb-3"></i>
+              <h4 class="font-semibold text-gray-800">Negotiation</h4>
+              <p class="text-sm text-gray-500 mt-1">Public Relations</p>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-6 border-t border-gray-200">
+            <h4 class="font-semibold text-gray-800 mb-3">Software Proficiency</h4>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">Microsoft Excel</span>
+              <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">Microsoft Word</span>
+              <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">PowerPoint</span>
+              <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">SolidWorks</span>
+              <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">Canva</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-accent font-medium mb-2 tracking-wider uppercase text-sm">Career Path</p>
+        <h2 class="serif-font text-4xl font-bold text-primary mb-4">Work Experience</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="max-w-4xl mx-auto">
+        <!-- Timeline -->
+        <div class="relative">
+          <!-- Timeline Line -->
+          <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-accent to-primary"></div>
+
+          <!-- Experience Item 1 -->
+          <div class="relative mb-12 md:mb-16">
+            <div class="md:w-1/2 md:pr-12 md:text-right md:ml-auto md:mr-0 ml-12 md:ml-0">
+              <div class="experience-card bg-gray-50 rounded-xl p-6 shadow-sm">
+                <span class="inline-block px-3 py-1 bg-accent/20 text-accent text-sm font-medium rounded-full mb-3">
+                  Mar 2024 – Jun 2025
+                </span>
+                <h3 class="text-xl font-bold text-primary mb-2">Freelance Sorting Staff</h3>
+                <p class="text-gray-600 font-medium mb-3">PT. Birotika Semesta (DHL Express) | Semarang</p>
+                <ul class="text-gray-500 text-sm space-y-2 md:text-right">
+                  <li>• Sorting, scanning, dan QC paket inbound & outbound</li>
+                  <li>• Memastikan akurasi dan kepatuhan SLA</li>
+                  <li>• Inventory handling sesuai SOP gudang</li>
+                </ul>
+              </div>
+            </div>
+            <div class="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-accent rounded-full border-4 border-white shadow"></div>
+          </div>
+
+          <!-- Experience Item 2 -->
+          <div class="relative mb-12 md:mb-16">
+            <div class="md:w-1/2 md:pl-12 md:ml-auto md:mr-0 ml-12 md:ml-0">
+              <div class="experience-card bg-gray-50 rounded-xl p-6 shadow-sm">
+                <span class="inline-block px-3 py-1 bg-accent/20 text-accent text-sm font-medium rounded-full mb-3">
+                  Juli – Agustus 2023
+                </span>
+                <h3 class="text-xl font-bold text-primary mb-2">Praktek Kerja Lapangan</h3>
+                <p class="text-gray-600 font-medium mb-3">PDAM Tirta Moedal Kota Semarang</p>
+                <ul class="text-gray-500 text-sm space-y-2">
+                  <li>• Maintenance dan inspeksi peralatan mekanikal</li>
+                  <li>• Troubleshooting pompa air, sistem perpipaan, valve</li>
+                  <li>• Pencatatan hasil pengecekan sesuai prosedur</li>
+                </ul>
+              </div>
+            </div>
+            <div class="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-accent rounded-full border-4 border-white shadow"></div>
+          </div>
+
+          <!-- Experience Item 3 -->
+          <div class="relative mb-12 md:mb-16">
+            <div class="md:w-1/2 md:pr-12 md:text-right md:ml-auto md:mr-0 ml-12 md:ml-0">
+              <div class="experience-card bg-gray-50 rounded-xl p-6 shadow-sm">
+                <span class="inline-block px-3 py-1 bg-accent/20 text-accent text-sm font-medium rounded-full mb-3">
+                  Agu 2022 – Okt 2023
+                </span>
+                <h3 class="text-xl font-bold text-primary mb-2">Freelance Sorting Staff</h3>
+                <p class="text-gray-600 font-medium mb-3">PT Shopee Internasional Indonesia | Semarang</p>
+                <ul class="text-gray-500 text-sm space-y-2 md:text-right">
+                  <li>• Sorting, scanning, dan data checking paket</li>
+                  <li>• QC dan inventory handling untuk dispatch</li>
+                  <li>• Memastikan kepatuhan SLA distribusi</li>
+                </ul>
+              </div>
+            </div>
+            <div class="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-accent rounded-full border-4 border-white shadow"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Organization Experience -->
+      <div class="mt-20">
+        <h3 class="serif-font text-2xl font-bold text-primary mb-8 text-center">Organizational Leadership</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="experience-card bg-gray-50 rounded-xl p-6 shadow-sm border-l-4 border-primary">
+            <h4 class="text-lg font-bold text-primary mb-2">Manager Tim</h4>
+            <p class="text-gray-600 font-medium mb-2">Riset Teknologi Robot Terbang UNWAHAS</p>
+            <p class="text-accent text-sm mb-3">2021 – 2022</p>
+            <p class="text-gray-500 text-sm">Memimpin dan mengoordinasikan tim proyek riset teknologi, mengelola timeline, tugas, dan pengembangan prototipe robot terbang.</p>
+          </div>
+          <div class="experience-card bg-gray-50 rounded-xl p-6 shadow-sm border-l-4 border-primary">
+            <h4 class="text-lg font-bold text-primary mb-2">Wakil Ketua</h4>
+            <p class="text-gray-600 font-medium mb-2">Dewan Perwakilan Mahasiswa FT</p>
+            <p class="text-accent text-sm mb-3">2022 – 2023</p>
+            <p class="text-gray-500 text-sm">Mendukung perencanaan strategis, pengambilan keputusan, dan monitoring program kerja bersama Ketua organisasi.</p>
+          </div>
+          <div class="experience-card bg-gray-50 rounded-xl p-6 shadow-sm border-l-4 border-accent">
+            <h4 class="text-lg font-bold text-primary mb-2">Staff Keuangan</h4>
+            <p class="text-gray-600 font-medium mb-2">Dewan Perwakilan Mahasiswa FT</p>
+            <p class="text-accent text-sm mb-3">2021 – 2022</p>
+            <p class="text-gray-500 text-sm">Mengelola pencatatan keuangan, cash flow, dan administrasi kas termasuk data entry dan kontrol pengeluaran.</p>
+          </div>
+          <div class="experience-card bg-gray-50 rounded-xl p-6 shadow-sm border-l-4 border-accent">
+            <h4 class="text-lg font-bold text-primary mb-2">Staff Hubungan Masyarakat</h4>
+            <p class="text-gray-600 font-medium mb-2">Organisasi Ikatan Mahasiswa Kendal</p>
+            <p class="text-accent text-sm mb-3">2021 – 2022</p>
+            <p class="text-gray-500 text-sm">Mengelola komunikasi internal dan eksternal, termasuk koordinasi dengan pihak eksternal dan stakeholder.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-accent font-medium mb-2 tracking-wider uppercase text-sm">Portfolio</p>
+        <h2 class="serif-font text-4xl font-bold text-primary mb-4">Featured Projects</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Project 1 -->
+        <div class="experience-card bg-white rounded-2xl overflow-hidden shadow-sm">
+          <div class="h-48 bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+            <i data-lucide="settings" class="w-16 h-16 text-white opacity-50"></i>
+          </div>
+          <div class="p-6">
+            <span class="inline-block px-3 py-1 bg-accent/20 text-accent text-xs font-medium rounded-full mb-3">
+              Mechanical Engineering
+            </span>
+            <h3 class="text-xl font-bold text-primary mb-3">Maintenance & Inspection</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              Melakukan maintenance dan inspeksi peralatan mekanikal seperti pompa air, sistem perpipaan,
+              dan valve untuk memastikan kelancaran distribusi air di PDAM Tirta Moedal.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Maintenance</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Inspection</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Troubleshooting</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="experience-card bg-white rounded-2xl overflow-hidden shadow-sm">
+          <div class="h-48 bg-gradient-to-br from-accent to-primary flex items-center justify-center">
+            <i data-lucide="drone" class="w-16 h-16 text-white opacity-50"></i>
+          </div>
+          <div class="p-6">
+            <span class="inline-block px-3 py-1 bg-accent/20 text-accent text-xs font-medium rounded-full mb-3">
+              Research & Development
+            </span>
+            <h3 class="text-xl font-bold text-primary mb-3">UAV Technology</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              Memimpin tim proyek riset teknologi robot terbang, mengelola timeline, tugas,
+              dan pengembangan prototipe dengan dokumentasi teknis lengkap.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Leadership</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">R&D</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Prototyping</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="experience-card bg-white rounded-2xl overflow-hidden shadow-sm">
+          <div class="h-48 bg-gradient-to-br from-secondary to-primary flex items-center justify-center">
+            <i data-lucide="clipboard-check" class="w-16 h-16 text-white opacity-50"></i>
+          </div>
+          <div class="p-6">
+            <span class="inline-block px-3 py-1 bg-accent/20 text-accent text-xs font-medium rounded-full mb-3">
+              Safety & Compliance
+            </span>
+            <h3 class="text-xl font-bold text-primary mb-3">K3 Implementation</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              Sertifikasi Keselamatan dan Kesehatan Kerja (K3) BNSP dengan penerapan standar
+              keselamatan dalam setiap operasional industri dan maintenance.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">K3</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Safety</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Compliance</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-gradient-to-br from-primary to-secondary text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-accent font-medium mb-2 tracking-wider uppercase text-sm">Get In Touch</p>
+        <h2 class="serif-font text-4xl font-bold mb-4">Let's Connect</h2>
+        <div class="section-divider" style="background: linear-gradient(90deg, #c9a227 0%, #ffffff 100%);"></div>
+        <p class="text-gray-300 mt-6 max-w-2xl mx-auto">
+          Saya terbuka untuk kesempatan karir di bidang teknik mesin, maintenance industri,
+          dan HSE. Mari berdiskusi tentang bagaimana saya dapat berkontribusi untuk perusahaan Anda.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <!-- Email -->
+        <a href="mailto:davidsyai8@gmail.com" target="_blank" class="group bg-white/10 backdrop-blur-sm rounded-xl p-8 text-center hover:bg-white/20 transition-all duration-300">
+
+          <div class="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/30 transition-colors">
+            <i data-lucide="mail" class="w-8 h-8 text-accent"></i>
+          </div>
+
+          <h3 class="text-lg font-bold mb-2">Email</h3>
+          <p class="text-gray-300 text-sm mb-3">davidsyai8@gmail.com</p>
+          <span class="text-accent text-sm font-medium group-hover:underline">Send Message →</span>
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/6287773137767" target="_blank" class="group bg-white/10 backdrop-blur-sm rounded-xl p-8 text-center hover:bg-white/20 transition-all duration-300">
+
+          <div class="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/30 transition-colors">
+            <i data-lucide="phone" class="w-8 h-8 text-accent"></i>
+          </div>
+
+          <h3 class="text-lg font-bold mb-2">WhatsApp</h3>
+          <p class="text-gray-300 text-sm mb-3">+62 877-7313-7767</p>
+          <span class="text-accent text-sm font-medium group-hover:underline">Chat Now →</span>
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/m-david-syaifudin" target="_blank" class="group bg-white/10 backdrop-blur-sm rounded-xl p-8 text-center hover:bg-white/20 transition-all duration-300">
+
+          <div class="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/30 transition-colors">
+            <i data-lucide="linkedin" class="w-8 h-8 text-accent"></i>
+          </div>
+
+          <h3 class="text-lg font-bold mb-2">LinkedIn</h3>
+          <p class="text-gray-300 text-sm mb-3">M. David Syaifudin</p>
+          <span class="text-accent text-sm font-medium group-hover:underline">View Profile →</span>
+        </a>
+
+        <!-- Social Links -->
+        <div class="flex justify-center gap-6 mt-12">
+          <a href="https://www.linkedin.com/in/m-david-syaifudin" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors">
+            <i data-lucide="linkedin" class="w-5 h-5"></i>
+          </a>
+          <a href="https://instagram.com/davidsyai" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors">
+            <i data-lucide="instagram" class="w-5 h-5"></i>
+          </a>
+          <a href="mailto:davidsyai8@gmail.com" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors">
+            <i data-lucide="mail" class="w-5 h-5"></i>
+          </a>
+        </div>
+      </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <p class="serif-font text-xl font-bold">M. David<span class="text-accent">.</span></p>
+          <p class="text-gray-500 text-sm mt-1">Mechanical Engineer | HSE-Oriented</p>
+        </div>
+        <div class="text-gray-500 text-sm">
+          © 2025 M. David Syaifudin. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+    // Mobile Menu Toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+    // Navbar Scroll Effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('shadow-md');
+        navbar.classList.replace('bg-white/95', 'bg-white/98');
+      } else {
+        navbar.classList.remove('shadow-md');
+        navbar.classList.replace('bg-white/98', 'bg-white/95');
+      }
+    });
+    // Smooth Scroll for Navigation Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+    // Animate Elements on Scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in-up');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    document.querySelectorAll('.experience-card, .skill-bar').forEach(el => {
+      el.style.opacity = '0';
+      observer.observe(el);
+    });
+    // Skill Bar Animation on Scroll
+    const skillObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const skillBars = entry.target.querySelectorAll('.skill-bar');
+          skillBars.forEach(bar => {
+            const width = bar.style.width;
+            bar.style.width = '0';
+            setTimeout(() => {
+              bar.style.width = width;
+            }, 100);
+          });
+          skillObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.5
+    });
+    document.querySelectorAll('#skills').forEach(el => {
+      skillObserver.observe(el);
+    });
+  </script>
+</body>
+
+</html>
+    
+  </body>
+  
+</html>
